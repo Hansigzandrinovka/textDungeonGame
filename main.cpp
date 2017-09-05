@@ -25,7 +25,14 @@ int yView = 0;
 void printTile(Tile targetTile)
 {
 	//TODO logic for printing tile
-	std::cout << "tile";
+	if(targetTile.getOccupant() != nullptr)
+	{
+		std::cout << "E_";
+	}
+	else
+	{
+		std::cout << "__";
+	}
 }
 
 void printDisplay(Entity playerEntity)
@@ -127,9 +134,13 @@ int main()
 
     while(!programDone) //while the user still wants to play the game
     {
+    	//provide UI
         printDisplay(*playerEntity);
+
+        //wait for user interractions
 		queryUserInput();
 
+		//monsters react accordingly
 		moveEnemies();
     }
 

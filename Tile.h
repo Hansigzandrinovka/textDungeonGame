@@ -19,8 +19,11 @@ class Tile //object inherits from object<templated>
 
 	//returns occupying Entity, or nullptr if none
 	Entity* getOccupant();
-	//bool Occupy(Entity* newOccupant);
-	//void StopOccupying();
+	//if there is not an occupying entity, newOccupant now occupies this tile
+	bool Occupy(Entity* newOccupant);
+	//if there is an occupying entity, discard pointer to it
+	//@precondition Entity already notified no longer attached to tile
+	void StopOccupying();
 
 	//connection methods make 2-way connection between this and given tile
 	void connectLeft(Tile* left);
@@ -37,7 +40,7 @@ class Tile //object inherits from object<templated>
 	Tile* rightTile;
 	Tile* topTile;
 	Tile* botTile;
-	//Entity* occupant;
+	Entity* occupant;
 	//Item* loot
 };
 

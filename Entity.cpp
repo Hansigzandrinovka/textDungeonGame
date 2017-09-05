@@ -3,6 +3,7 @@
 //@brief: see Entity.h
 
 #include "Entity.h"
+#include "Tile.h"
 
 using namespace std;
 
@@ -19,4 +20,29 @@ Tile* Entity::getSpace()
 void Entity::takeDamage(int amount, DamageType type)
 {
 	//to be extended by children
+}
+
+bool Entity::goToSpace(Tile* newSpace)
+{
+	if(!canOccupy(newSpace))
+	{
+		return false;
+	}
+	if(currentTile != nullptr)
+	{
+		currentTile->StopOccupying();
+	}
+	newSpace->Occupy(this);
+	currentTile = newSpace;
+	return true;
+}
+
+const bool Entity::canOccupy(Tile* targetTile)
+{
+	if(targetTile == nullptr || (targetTile->getOccupant() != nullptr))
+		return false;
+
+	//room for additional conditionals
+
+	return true;
 }

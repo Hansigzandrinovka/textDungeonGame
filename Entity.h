@@ -14,6 +14,12 @@ class Entity
     public:
 	Entity(Tile* entitysTile);
 	Tile* getSpace();
+	//attempts to move Entity to tile by magical warp-y means
+	//fails if for some reason (terrain, etc.) Entity cannot occupy tile
+	//returns true if travel was successful, false on failure
+	bool goToSpace(Tile* newSpace);
+	//performs logic to determine, without change of state, if Entity can/not occupy tile, returns true if can occupy
+	const bool canOccupy(Tile* targetTile);
 	void takeDamage(int amount, DamageType type);
 	
 	protected:

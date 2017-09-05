@@ -12,11 +12,12 @@ Tile::Tile()
 	rightTile = nullptr;
 	topTile = nullptr;
 	botTile = nullptr;
+	occupant = nullptr;
 }
 
 Entity* Tile::getOccupant()
 {
-	return nullptr;
+	return occupant;
 }
 
 void Tile::connectLeft(Tile* tile)
@@ -61,4 +62,16 @@ void Tile::disconnectAll()
 	{
 		botTile->topTile = nullptr;
 	}
+}
+
+bool Tile::Occupy(Entity* newOccupant)
+{
+	if(newOccupant == nullptr || occupant != nullptr)
+		return false;
+	return true;
+}
+
+void Tile::StopOccupying()
+{
+	occupant = nullptr;
 }
