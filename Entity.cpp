@@ -8,5 +8,15 @@ using namespace std;
 
 Entity::Entity(Tile* entitysTile)
 {
-	//do stuff
+	currentTile = entitysTile;
+}
+
+Tile* Entity::getSpace()
+{
+	return currentTile;
+}
+
+void Entity::takeDamage(int amount, DamageType type)
+{
+	//to be extended by children
 }

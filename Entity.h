@@ -4,16 +4,19 @@
 
 #ifndef ENT_H
 #define ENT_H
-#include "Tile.h"
+
+class Tile; //Tile defined in "Tile.h"
+
+enum DamageType {Slash,Pierce,Bludgeoning, Magic};
 
 class Entity
 {
     public:
 	Entity(Tile* entitysTile);
-	//Tile* getSpace();
+	Tile* getSpace();
+	void takeDamage(int amount, DamageType type);
 	
 	protected:
-	//void takeDamage(int amount);
-	//Tile* currentTile;
+	Tile* currentTile;
 };
 #endif
