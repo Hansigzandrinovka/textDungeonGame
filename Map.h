@@ -14,12 +14,15 @@ class Map
 	Tile*** getLayout(out int xDim, out int yDim);
 	
 	void placePlayer(Entity playerEntity);
+	Tile* getTile(int xCoord, int yCoord)
 
 	private:
 	void generateMap(int seed);
-  Tile*** floor;
-  int xSize;
-  int ySize;
+	//floor is a [y][x] dimension array composed of all Tile objects in the game world, size-governed by ySize and xSize
+	//floor[0][0] corresponds to top-left tile of current floor
+	Tile*** floor;
+	int xSize;
+	int ySize;
 };
 
 #endif

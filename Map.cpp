@@ -1,8 +1,6 @@
 //@author Hans Brown
 //@date 9-5-2017
 //@brief: see Map.h
-#ifndef MAP_H
-#define MAP_H
 
 Map::Map(int xBounds, int yBounds, int seed)
 {
@@ -42,6 +40,10 @@ Tile*** Map::getLayout(out int xDim, out int yDim)
 	yDim = ySize;
 	return floor;
 }
+Tile* Map::getTile(int xCoord, int yCoord)
+{
+	return floor[yCoord][xCoord];
+}
 	
 void Map::placePlayer(Entity playerEntity)
 {
@@ -58,12 +60,6 @@ void Map::placePlayer(Entity playerEntity)
 				return;
 		}
 	}
+	std::cout << "ALERT!!! UNABLE TO PLACE PLAYER!!!";
+	//TODO throw exception for failing to place player there
 }
-
-	private:
-  Tile*** room;
-  int xSize;
-  int ySize;
-};
-
-#endif

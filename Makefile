@@ -8,6 +8,8 @@ Entity.o: Entity.cpp Entity.h Tile.h
 	g++ -std=c++11 -g -Wall -c Entity.cpp
 Room.o: Room.cpp Room.h
 	g++ -std=c++11 -g -Wall -c Room.cpp
+Map.o: Map.cpp Map.h
+	g++ -std=c++11 -g -Wall -c Map.cpp
 clean:
 	rm *.o Game
 	echo clean done
