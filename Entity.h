@@ -12,7 +12,7 @@ enum DamageType {Slash,Pierce,Bludgeoning, Magic};
 class Entity
 {
     public:
-	Entity(Tile* entitysTile);
+	Entity();
 	Tile* getSpace();
 	//attempts to move Entity to tile by magical warp-y means
 	//fails if for some reason (terrain, etc.) Entity cannot occupy tile

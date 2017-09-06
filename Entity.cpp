@@ -7,9 +7,9 @@
 
 using namespace std;
 
-Entity::Entity(Tile* entitysTile)
+Entity::Entity()
 {
-	currentTile = entitysTile;
+	currentTile = nullptr;
 }
 
 Tile* Entity::getSpace()
@@ -32,7 +32,10 @@ bool Entity::goToSpace(Tile* newSpace)
 	{
 		currentTile->StopOccupying();
 	}
-	newSpace->Occupy(this);
+	if(!newSpace->Occupy(this))
+	{
+		return false;
+	}
 	currentTile = newSpace;
 	return true;
 }

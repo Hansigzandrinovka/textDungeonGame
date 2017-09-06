@@ -102,7 +102,11 @@ void initGame()
 
 	//populate dungeon with entities
 
-	playerEntity = new Entity(nullptr);
+	playerEntity = new Entity();
+	if(!playerEntity->goToSpace(visibleArea[0][0]))
+	{
+		std::cout << "failed to place player entity";
+	}
 
 	//init player view parameters
 
